@@ -9,12 +9,15 @@
 
     <style>
         /* 第一種 尺寸 0~575px */
+
+        /* 清空整個頁面的預設設定，並加上字型設定 */
         * {
             margin: 0;
             padding: 0;
             list-style: none;
             box-sizing: border-box;
             font-family: "Noto Sans TC", sans-serif;
+            transition: 1s;
         }
 
         #container {
@@ -24,41 +27,48 @@
             margin: auto;
         }
 
+        /* ALL 的圖片控制 */
+        img {
+            width: 50%;
+            margin: auto;
+            display: block;
+        }
+
+        /* 各程式的圖片控制 */
+        .obj-fit {
+            width: 250px;
+            object-fit: cover;
+        }
+
+        .wda-img {
+            width: 50%;
+        }
+
         .wda-card {
             width: 100%;
-            height: 100%;
             text-align: center;
         }
 
-        .a {
+        /* 內容與水平線的間距 */
+        .padding {
             padding: 5% 0;
         }
 
+        /* h1 文字加粗 */
         h1 {
             font-weight: 900;
         }
 
-
+        /* 次標題的字體尺寸 */
         h3 {
             font-size: 1.5rem;
         }
 
+        /* 文字敘述的字體尺寸 */
         .text {
             font-size: 1rem;
         }
 
-        img {
-            width: 50%;
-        }
-
-        .img {
-            text-align: center;
-        }
-
-        /* .obj-fit {
-            width: 50%;
-            object-fit: cover;
-        } */
 
         /* 第二種尺寸 576px 以上 */
         @media(min-width:576px) {
@@ -71,34 +81,149 @@
             }
 
             #container {
+                height: 100%;
                 position: relative;
-            }
-
-
-            .card {
-                text-align: center;
-            }
-
-            .img {
-                width: 50%;
-            }
-
-            .html-img-h3 {
-                text-align: center;
-                position: absolute;
-                left: 0;
             }
 
             .wda-card {
                 position: absolute;
                 top: 50%;
                 left: 50%;
-                transform: translate(-50%, 50%);
+                transform: translate(-50%, -50%);
             }
 
             .wda-img {
-                width: 30%;
+                width: 400px;
+                background: white;
+                border-radius: 50%;
+                border: 20px solid white;
             }
+
+            .obj-fit {
+                width: 180px;
+                object-fit: cover;
+                background: white;
+            }
+
+            .css-img-h3 {
+                text-align: center;
+                position: absolute;
+                Top: 5%;
+                left: 15%
+            }
+
+            .html-img-h3 {
+                text-align: center;
+                position: absolute;
+                Top: 25%;
+                left: 0%
+            }
+
+
+            .js-img-h3 {
+                text-align: center;
+                position: absolute;
+                Top: 50%;
+                left: 5%
+            }
+
+            .jq-img-h3 {
+                text-align: center;
+                position: absolute;
+                Top: 65%;
+                left: 20%
+            }
+
+            .bs-img-h3 {
+                text-align: center;
+                position: absolute;
+                Top: 15%;
+                right: 15%
+            }
+
+            .sass-img-h3 {
+                text-align: center;
+                position: absolute;
+                Top: 30%;
+                right: 0%
+            }
+
+            .vue-img-h3 {
+                text-align: center;
+                position: absolute;
+                Top: 55%;
+                right: 15%
+            }
+
+            .line_a {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0%;
+                transform: translate(-50%, 50%);
+                z-index: -1;
+            }
+
+            .line_a::before {
+                content: " ";
+                width: 100%;
+                height: 1%;
+                background: #d6d6d6;
+                position: absolute;
+                transform: rotate(10deg);
+                z-index: -1;
+            }
+
+            .line_a::after {
+                content: " ";
+                width: 50%;
+                height: 1%;
+                background: #d6d6d6;
+                position: absolute;
+                transform: rotate(-10deg);
+                z-index: -1;
+            }
+
+            .line_b {
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0%;
+                transform: translate(-50%, 50%);
+                z-index: -1;
+            }
+
+            .line_b::before {
+                content: " ";
+                width: 30%;
+                height: 1%;
+                background: #d6d6d6;
+                position: absolute;
+                top: -30%;
+                left: 70%;
+                transform: rotate(30deg);
+                z-index: -1;
+
+            }
+
+            .line_b::after {
+                content: " ";
+                width: 100%;
+                height: 1%;
+                background: #d6d6d6;
+                position: absolute;
+                transform: rotate(-30deg);
+                z-index: -1;
+                mask-image: #333;
+                mask-size: 50% 100%;
+                mask-position: left;
+
+            }
+
+            /* .line_b hr {
+                transform: rotate(35deg);
+                background-color: #ff0202;
+            } */
 
         }
     </style>
@@ -106,14 +231,16 @@
 
 <body>
     <div id="container">
-        <div class="wda-card a">
-            <div class="line"></div>
-            <div class="line"></div>
-            <div class="line"></div>
-            <div class="wda-img-h1">
-                <img class="obj-fit wda-img" src="./images/wda.png">
-                <h1 class="wda-h1">泰山職訓局</h1>
+        <div class="wda-card padding">
+            <div id="line">
+                <div class="line_a"></div>
+                <div class="line_b"></div>
+                <div class="line_c"></div>
             </div>
+            <div class="wda-img-h1">
+                <img class="wda-img" src="./images/wda.png">
+            </div>
+            <h1 class="wda-h1">泰山職訓局</h1>
             <h3 class="wda-h3">從零開始的網頁設計課程</h3>
             <div class="text">
                 <span>轉職網頁開發人員　掌握就業必備職能</span><br>
@@ -121,7 +248,7 @@
             </div>
         </div>
         <hr>
-        <div class="html a">
+        <div class="html padding">
             <div class="html-img-h3">
                 <img class="obj-fit" src="./images/html.png">
                 <h3>Html</h3>
@@ -131,11 +258,9 @@
             </div>
         </div>
         <hr>
-        <div class="css a">
+        <div class="css padding">
             <div class="css-img-h3">
-                <div class="img">
-                    <img class="obj-fit" src="./images/css.png">
-                </div>
+                <img class="obj-fit" src="./images/css.png">
                 <h3>CSS</h3>
             </div>
             <div class="text">
@@ -143,11 +268,9 @@
             </div>
         </div>
         <hr>
-        <div class="bs a">
+        <div class="bs padding">
             <div class="bs-img-h3">
-                <div class="img">
-                    <img class="obj-fit" src="./images/bs.png">
-                </div>
+                <img class="obj-fit" src="./images/bs.png">
                 <h3>Bootstrap</h3>
             </div>
             <div class="text">
@@ -155,11 +278,9 @@
             </div>
         </div>
         <hr>
-        <div class="jq a">
+        <div class="jq padding">
             <div class="jq-img-h3">
-                <div class="img">
-                    <img class="obj-fit" src="./images/jq.png">
-                </div>
+                <img class="obj-fit" src="./images/jq.png">
                 <h3>jQuery</h3>
             </div>
             <div class="text">
@@ -167,11 +288,9 @@
             </div>
         </div>
         <hr>
-        <div class="js a">
+        <div class="js padding">
             <div class="js-img-h3">
-                <div class="img">
-                    <img class="obj-fit" src="./images/js.png">
-                </div>
+                <img class="obj-fit" src="./images/js.png">
                 <h3>JavaScript</h3>
             </div>
             <div class="text">
@@ -179,11 +298,9 @@
             </div>
         </div>
         <hr>
-        <div class="sass a">
+        <div class="sass padding">
             <div class="sass-img-h3">
-                <div class="img">
-                    <img class="obj-fit" src="./images/sass.png">
-                </div>
+                <img class="obj-fit" src="./images/sass.png">
                 <h3>Sass</h3>
             </div>
             <div class="text">
@@ -191,11 +308,9 @@
             </div>
         </div>
         <hr>
-        <div class="vue a">
+        <div class="vue padding">
             <div class="vue-img-h3">
-                <div class="img">
-                    <img class="obj-fit" src="./images/vue.png">
-                </div>
+                <img class="obj-fit" src="./images/vue.png">
                 <h3>Vue.js</h3>
             </div>
             <div class="text">
